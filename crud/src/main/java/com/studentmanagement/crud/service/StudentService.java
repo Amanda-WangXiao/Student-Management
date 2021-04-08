@@ -10,12 +10,13 @@ import java.util.List;
 @Service
 public class StudentService implements StudentDao {
 
+    @Autowired
     private StudentMapper studentMapper;
 
     @Override
     public List<Student> queryAll() {
-
-        return null;
+        List<Student> studentList = studentMapper.queryAll();
+        return studentList;
     }
 
     @Override

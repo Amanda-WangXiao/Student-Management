@@ -111,8 +111,8 @@
       stuPhone = #{stuphone,jdbcType=VARCHAR}
     where stuNo = #{stuno,jdbcType=VARCHAR}
   </update>
-
-  <select id="queryAll" resultType="com.studentmanagement.crud.entity.Student">
+  
+  <select id="queryAll" resultMap="BaseResultMap">
     select * from studentmanagement.student_info
   </select>
 </mapper>
