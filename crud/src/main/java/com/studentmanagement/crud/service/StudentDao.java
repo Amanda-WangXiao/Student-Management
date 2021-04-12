@@ -15,7 +15,7 @@ public interface StudentDao {
 
     boolean add(Student student);
 
-    boolean deleteByID(int no);
+    boolean deleteByID(String no);
 
     boolean update(Student student);
 }

@@ -21,12 +21,14 @@ public class StudentService implements StudentDao {
 
     @Override
     public boolean add(Student student) {
-        return false;
+        studentMapper.insert(student);
+        return true;
     }
 
     @Override
-    public boolean deleteByID(int no) {
-        return false;
+    public boolean deleteByID(String no) {
+        studentMapper.deleteByPrimaryKey(no);
+        return true;
     }
 
     @Override

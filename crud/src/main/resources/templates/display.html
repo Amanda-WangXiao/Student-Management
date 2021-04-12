@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
+<a href="/addPage">新增</a>
+
     <table border="1px">
         <tr>
             <th>学号</th>
             <th>姓名</th>
             <th>年龄</th>
             <th>电话</th>
-<!--            <th>操作</th>-->
+            <th>操作</th>
         </tr>
         <tr th:each="stu:${students}">
             <td th:text="${stu.stuno}"></td>
             <td th:text="${stu.stuname}"></td>
             <td th:text="${stu.stuage}"></td>
             <td th:text="${stu.stuphone}"></td>
-<!--            <td>-->
-<!--                <a th:href="@{sendsno(sno=${students.sno})}">更新</a>-->
-<!--                <a th:href="@{del(sno=${students.sno})}">删除</a>-->
-<!--            </td>-->
+            <td>
+<!--                <a th:href="@{sendsno(stuno=${stu.stuno})}">更新</a>-->
+                <a th:href="@{delete(no=${stu.stuno})}">删除</a>
+            </td>
         </tr>
-<!--        <a href="/addPage">新增</a>-->
+
     </table>
 
 </body>
