@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Display Page</title>
 </head>
 <body>
 <a href="/addPage">新增</a>
@@ -22,8 +22,8 @@
             <td th:text="${stu.stuage}"></td>
             <td th:text="${stu.stuphone}"></td>
             <td>
-<!--                <a th:href="@{sendsno(stuno=${stu.stuno})}">更新</a>-->
-                <a th:href="@{delete(no=${stu.stuno})}">删除</a>
+                <a th:href="@{updatePage(update_no=${stu.stuno})}">更新</a>
+                <a th:href="@{delete(del_no=${stu.stuno})}">删除</a>
             </td>
         </tr>
 

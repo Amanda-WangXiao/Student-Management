@@ -31,9 +31,17 @@ public class StudentService implements StudentDao {
         return true;
     }
 
+
     @Override
-    public boolean update(Student student) {
-        return false;
+    public Student selectByID(String no) {
+        Student student = studentMapper.selectByPrimaryKey(no);
+        return student;
+    }
+
+    @Override
+    public int update(Student student) {
+        int i = studentMapper.updateByPrimaryKeySelective(student);
+        return i;
     }
 
 }

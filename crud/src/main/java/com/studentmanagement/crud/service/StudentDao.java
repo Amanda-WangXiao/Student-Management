@@ -17,5 +17,7 @@ public interface StudentDao {
 
     boolean deleteByID(String no);
 
-    boolean update(Student student);
+
+    Student selectByID(String no);
+    int update(Student student);
 }

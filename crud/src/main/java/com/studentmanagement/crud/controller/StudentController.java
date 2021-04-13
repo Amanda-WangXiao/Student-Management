@@ -30,7 +30,7 @@ public class StudentController {
 
     @RequestMapping("/delete")
     public ModelAndView Delete(HttpServletRequest request){
-        String no = request.getParameter("no");
+        String no = request.getParameter("del_no");
         studentDao.deleteByID(no);
         return new ModelAndView("redirect:/display");
     }
@@ -38,7 +38,7 @@ public class StudentController {
     @GetMapping("/addPage")
     public ModelAndView addPage(Model model){
         model.addAttribute("new_student",new Student());
-        return new ModelAndView("add","stumodel",model);
+        return new ModelAndView("add","add_model",model);
     }
 
     @PostMapping("/add")
@@ -47,5 +47,18 @@ public class StudentController {
         return new ModelAndView("redirect:/display");
     }
 
+    @GetMapping("/updatePage")
+    public ModelAndView updatePage(HttpServletRequest request,Model model){
+        String no = request.getParameter("update_no");
+        Student student = studentDao.selectByID(no);
+        model.addAttribute("student_tobeUpdate",student);
+        return new ModelAndView("edit","update_model",model);
+    }
+
+    @PostMapping("/update")
+    public ModelAndView update(Student student){
+        int update = studentDao.update(student);
+        return new ModelAndView("redirect:/display");
+    }
 
 }
