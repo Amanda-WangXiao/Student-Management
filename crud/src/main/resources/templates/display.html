@@ -4,11 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Display Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+        body {
+            /*font-size: 16px Microsoft YaHei;*/
+            font-size: 16px;
+            line-height: 16px;
+        }
+        a {
+            color: #111;
+            text-decoration: none;
+            text-align: center;
+            margin: 0 13px;
+        }
+        a:hover {
+            color: #c81623
+        }
+        .title {
+            position: relative;
+            left: -320px;
+            margin-top: 20px;
+            display: block;
+            /*font-weight: 550;*/
+            font-weight: 600;
+        }
+        table {
+            width: 680px;
+            margin: 20px auto;
+	        border-collapse: collapse;
+            text-align: center;
+
+        }
+        th, td {
+            height: 30px;
+            border: 1px solid #333;
+        }
+        .last {
+            width: 30%;
+        }
+        th {
+            color: #fff;
+            background-color: #c81623;
+        }
+
+    </style>
 </head>
 <body>
-<a href="/addPage">新增</a>
+    <a class="title" href="/addPage">新增</a>
 
-    <table border="1px">
+    <table>
         <tr>
             <th>学号</th>
             <th>姓名</th>
@@ -21,7 +69,7 @@
             <td th:text="${stu.stuname}"></td>
             <td th:text="${stu.stuage}"></td>
             <td th:text="${stu.stuphone}"></td>
-            <td>
+            <td class="last">
                 <a th:href="@{updatePage(update_no=${stu.stuno})}">更新</a>
                 <a th:href="@{delete(del_no=${stu.stuno})}">删除</a>
             </td>

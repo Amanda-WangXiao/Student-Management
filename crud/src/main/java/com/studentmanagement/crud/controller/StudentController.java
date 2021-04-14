@@ -2,10 +2,7 @@ package com.studentmanagement.crud.controller;
 
 import com.studentmanagement.crud.entity.Student;
 import com.studentmanagement.crud.service.StudentDao;
-import com.studentmanagement.crud.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -57,7 +54,7 @@ public class StudentController {
 
     @PostMapping("/update")
     public ModelAndView update(Student student){
-        int update = studentDao.update(student);
+        studentDao.update(student);
         return new ModelAndView("redirect:/display");
     }
 
