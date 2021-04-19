@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="/add" method="post" th:object="${add_model.new_student}">
-    学号：<input type="text" name="stuno" th:value="*{stuno}">
-    姓名：<input type="text" name="stuname" th:value="*{stuname}">
+<form action="/add" method="post" th:object="${add_model.new_student}" onsubmit="return checkEmpty()">
+    学号：<input type="text" name="stuno" id="stuno_check" th:value="*{stuno}">
+    姓名：<input type="text" name="stuname" id="stuname_check" th:value="*{stuname}">
     年龄：<input type="text" name="stuage" th:value="*{stuage}">
     电话：<input type="text" name="stuphone" th:value="*{stuphone}">
     <input type="submit" value="添加">
@@ -16,3 +16,16 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+    function checkEmpty(){//js表单验证方法
+        var text_stuno=document.getElementById("stuno_check").value;//通过id获取需要验证的表单元素的值
+        var text_stuname=document.getElementById("stuname_check").value;
+        if(text_stuno=="" || text_stuname==""){//当上面获取的值为空时
+            alert("不能为空哦！");//弹出提示
+            window.location.href="display";
+            return false;
+        }
+        return true;//提交表单
+    }
+</script>

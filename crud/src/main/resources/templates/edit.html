@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="/update" method="post" th:object="${update_model.student_tobeUpdate}">
+<form action="/update" method="post" th:object="${update_model.student_tobeUpdate}" onsubmit="return checkEmpty()">
     学号：<input type="text" name="stuno" th:value="*{stuno}" readonly>
-    姓名：<input type="text" name="stuname" th:value="*{stuname}">
+    姓名：<input type="text" name="stuname" id="stuname_check" th:value="*{stuname}">
     年龄：<input type="text" name="stuage" th:value="*{stuage}">
     电话：<input type="text" name="stuphone" th:value="*{stuphone}">
     <input type="submit" value="修改">
@@ -16,3 +16,15 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+    function checkEmpty(){//js表单验证方法
+        var text_stuname=document.getElementById("stuname_check").value;
+        if(text_stuname==""){//当上面获取的值为空时
+            alert("不能为空哦！");//弹出提示
+            window.location.href="display";
+            return false;
+        }
+        return true;//提交表单
+    }
+</script>
