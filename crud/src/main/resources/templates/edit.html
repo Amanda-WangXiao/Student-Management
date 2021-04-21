@@ -5,12 +5,12 @@
     <title>Edit Page</title>
 </head>
 <body>
-
+<br>
 <form action="/update" method="post" th:object="${update_model.student_tobeUpdate}" onsubmit="return checkEmpty()">
-    学号：<input type="text" name="stuno" th:value="*{stuno}" readonly>
-    姓名：<input type="text" name="stuname" id="stuname_check" th:value="*{stuname}">
-    年龄：<input type="text" name="stuage" th:value="*{stuage}">
-    电话：<input type="text" name="stuphone" th:value="*{stuphone}">
+    学号：<input type="text" name="stuno" th:value="*{stuno}" style="background-color: yellow" readonly><br><br>
+    姓名：<input type="text" name="stuname" id="stuname_check" th:value="*{stuname}"><br><br>
+    年龄：<input type="text" name="stuage" th:value="*{stuage}"><br><br>
+    电话：<input type="text" name="stuphone" th:value="*{stuphone}"><br><br><br>
     <input type="submit" value="修改">
 </form>
 
@@ -21,7 +21,7 @@
     function checkEmpty(){//js表单验证方法
         var text_stuname=document.getElementById("stuname_check").value;
         if(text_stuname==""){//当上面获取的值为空时
-            alert("不能为空哦！");//弹出提示
+            alert("姓名不能修改为空");//弹出提示
             window.location.href="display";
             return false;
         }

@@ -51,10 +51,15 @@
             background-color: #c81623;
         }
 
+        image {
+            opacity: 0.7;
+        }
+
     </style>
 </head>
-<body>
-    <a class="title" href="/addPage">新增</a>
+<body background="images/bkg.jpeg">
+
+<a class="title" href="/addPage">新增</a>
 
     <table>
         <tr>
@@ -65,7 +70,7 @@
             <th>操作</th>
         </tr>
         <tr th:each="stu:${students}">
-            <td th:text="${stu.stuno}"></td>
+            <td th:text="${stu.stuno}" style="color: red"></td>
             <td th:text="${stu.stuname}"></td>
             <td th:text="${stu.stuage}"></td>
             <td th:text="${stu.stuphone}"></td>
