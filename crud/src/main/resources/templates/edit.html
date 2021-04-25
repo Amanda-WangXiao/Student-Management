@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit Page</title>
 </head>
-<body>
+<body background="images/bkg.jpeg">
 <br>
 <form action="/update" method="post" th:object="${update_model.student_tobeUpdate}" onsubmit="return checkEmpty()">
     学号：<input type="text" name="stuno" th:value="*{stuno}" style="background-color: yellow" readonly><br><br>
@@ -12,6 +12,9 @@
     年龄：<input type="text" name="stuage" th:value="*{stuage}"><br><br>
     电话：<input type="text" name="stuphone" th:value="*{stuphone}"><br><br><br>
     <input type="submit" value="修改">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="/display">返回</a>
 </form>
 
 </body>

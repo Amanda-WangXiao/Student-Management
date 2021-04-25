@@ -57,11 +57,15 @@
 
     </style>
 </head>
-<body background="images/bkg.jpeg">
-
+<body background="images/bkg.jpeg"><br>
+<h1 align="center">Student Management System</h1><br><br>
+<center>
+<a>按姓名搜索: </a>&nbsp&nbsp&nbsp<input type="text" id="search_content">
+<input id="btn" type="button" value="搜索" />
+</center>
 <a class="title" href="/addPage">新增</a>
 
-    <table>
+    <table id="main_table">
         <tr>
             <th>学号</th>
             <th>姓名</th>
@@ -84,3 +88,32 @@
 
 </body>
 </html>
+
+<script>
+    window.onload=function(){
+        var oTb=document.getElementById('main_table');
+        var tName=document.getElementById('search_content');
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=function(){
+            var aRows=oTb.tBodies[0].rows;
+            for(var i=0;i<aRows.length;i++)
+            {
+                var tdValue=aRows[i].cells[1].innerHTML.toLowerCase();
+                var tNameValue=tName.value.toLowerCase().split(' ');
+                for(var j=0;j<tNameValue.length;j++)
+                {
+                    if(tdValue.search(tNameValue[j])>=0)
+                    {
+                        aRows[i].style.background='yellow';
+                        break;
+                    }
+                    else{
+                        aRows[i].style.background='';
+                    }
+                }
+
+            }
+        };
+
+    };
+</script>
