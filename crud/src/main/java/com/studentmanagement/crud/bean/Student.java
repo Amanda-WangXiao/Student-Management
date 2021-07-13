@@ -1,7 +1,11 @@
-package com.studentmanagement.crud.entity;
+package com.studentmanagement.crud.bean;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
+@Component
 public class Student implements Serializable {
     /**
      *

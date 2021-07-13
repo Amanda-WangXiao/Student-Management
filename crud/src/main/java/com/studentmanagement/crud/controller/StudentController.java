@@ -1,21 +1,21 @@
 package com.studentmanagement.crud.controller;
 
-import com.studentmanagement.crud.entity.Student;
-import com.studentmanagement.crud.service.StudentDao;
+
+import com.studentmanagement.crud.bean.Student;
+import com.studentmanagement.crud.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
 public class StudentController {
 
     @Autowired
-    private StudentDao studentDao;
+    private StudentService studentService;
 
     @RequestMapping("/")
     public ModelAndView index() {
@@ -27,7 +27,7 @@ public class StudentController {
     @RequestMapping("/display")
     public ModelAndView Display(){
         ModelAndView modelAndView = new ModelAndView();
-        List<Student> studentList = studentDao.queryAll();
+        List<Student> studentList = studentService.queryAll();
         modelAndView.addObject("students",studentList);
         modelAndView.setViewName("display");
         return modelAndView;
@@ -36,7 +36,7 @@ public class StudentController {
     @RequestMapping("/delete")
     public ModelAndView Delete(HttpServletRequest request){
         String no = request.getParameter("del_no");
-        studentDao.deleteByID(no);
+        studentService.deleteByID(no);
         return new ModelAndView("redirect:/display");
     }
 
@@ -48,21 +48,21 @@ public class StudentController {
 
     @PostMapping("/add")
     public ModelAndView add(Student student){
-        studentDao.add(student);
+        studentService.add(student);
         return new ModelAndView("redirect:/display");
     }
 
     @GetMapping("/updatePage")
     public ModelAndView updatePage(HttpServletRequest request,Model model){
         String no = request.getParameter("update_no");
-        Student student = studentDao.selectByID(no);
+        Student student = studentService.selectByID(no);
         model.addAttribute("student_tobeUpdate",student);
         return new ModelAndView("edit","update_model",model);
     }
 
     @PostMapping("/update")
     public ModelAndView update(Student student){
-        studentDao.update(student);
+        studentService.update(student);
         return new ModelAndView("redirect:/display");
     }
 

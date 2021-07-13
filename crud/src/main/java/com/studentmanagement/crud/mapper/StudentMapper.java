@@ -1,9 +1,8 @@
 package com.studentmanagement.crud.mapper;
 
-import com.studentmanagement.crud.entity.Student;
+import com.studentmanagement.crud.bean.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
